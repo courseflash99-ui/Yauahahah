@@ -1,20 +1,24 @@
-name: Build Project
-on: [push, pull_request]
+name: Build NDK Project
+
+on:
+  push:
+    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: وەرگرتنی کۆدەکان
+      uses: actions/checkout@v4
 
-      - name: Set up Environment
-        run: |
-          echo "Starting the build process..."
-          ls -R
+    - name: بیڵدکردن بە ndk-build
+      run: |
+        cd 8BPGlass/8BPGlass
+        $ANDROID_NDK_LATEST_HOME/ndk-build
 
-      - name: Build with Make (نموونە)
-        run: |
-          # ئەگەر پڕۆژەکەت Makefile ی تێدایە ئەمە لێ بدە
-          # ئەگەر نا، لێرەدا فەرمانی بویڵدکردنی خۆت بنووسە
-          echo "Building..."
+    - name: ئامادەکردنی پەڕگەکان بۆ داگرتن
+      uses: actions/upload-artifact@v4
+      with:
+        name: Native-Libraries
+        path: 8BPGlass/8BPGlass/libs/
