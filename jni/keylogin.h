@@ -1,7 +1,6 @@
 #ifndef LOGIN_H
 #define LOGIN_H
 
-#include "StrEnc.h"
 #include "Includes.h"
 #include "curl/curl.h"
 #include "Tools.h"
