@@ -14,11 +14,11 @@ jobs:
 
     - name: بیڵدکردن بە ndk-build
       run: |
-        cd 8BPGlass/8BPGlass
+        # ئەگەر فایلی Android.mk لەناو فۆڵدەری jni دایە و jni لە سەرەتای پڕۆژەکەیە:
         $ANDROID_NDK_LATEST_HOME/ndk-build
 
     - name: ئامادەکردنی پەڕگەکان بۆ داگرتن
       uses: actions/upload-artifact@v4
       with:
         name: Native-Libraries
-        path: 8BPGlass/8BPGlass/libs/
+        path: libs/
